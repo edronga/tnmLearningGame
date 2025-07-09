@@ -1,5 +1,7 @@
 'use strict'
 
+screen.orientation.unlock()
+
 document.addEventListener('pointerdown', function (e) {
     e.preventDefault();
 }, {passive: false})
