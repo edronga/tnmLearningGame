@@ -145,6 +145,7 @@ function imageVisualiserScreen(arrayOfCtImages = [], imgButtonLeft, imgButtonRig
     r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
             if (cache['isfingerSlippingSecurityOff'] !== true){
                 cache['isfingerSlippingSecurityOff'] = true
+                updateOkButtonImg()
                 return;
             }
             else {

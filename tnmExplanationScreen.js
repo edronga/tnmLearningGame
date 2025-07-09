@@ -262,7 +262,7 @@ function getTnmExplanationScreenSelection(){
             height: 20dvh;
             grid-area: okButtonDiv;
             background-color: whitesmoke;
-            background-image: url('Images/imgTappingHand.png');
+            background-image: url('Images/imgPatientFile.png');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -290,14 +290,8 @@ function getTnmExplanationScreenSelection(){
     })
 
     r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
-        if (cache['isfingerSlippingSecurityOff'] !== true){
-            cache['isfingerSlippingSecurityOff'] = true
-            return;
-        }
-        else {
-            document.getElementsByTagName('body')[0].innerHTML = ''
-            document.getElementsByTagName('body')[0].appendChild(getMenuScreen())
-        }
+        document.getElementsByTagName('body')[0].innerHTML = ''
+        document.getElementsByTagName('body')[0].appendChild(getMenuScreen())    
     })
     
 
@@ -370,7 +364,7 @@ function getTnmExplanationScreenExplanation_Text(tnmCode = 'TX'){
             height: 20dvh;
             grid-area: okButtonDiv;
             background-color: whitesmoke;
-            background-image: url('Images/imgPatientFile.png');
+            background-image: url('Images/imgRepeat.png');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -465,15 +459,12 @@ function getTnmExplanationScreenExplanation_Image(tnmCode = 'TX'){
             background-size: contain;
         }
 
-        #okButtonDiv{
-            width: 34dvw;
+        #bottomScreenDiv{
+            width: 100dvw;
             height: 20dvh;
-            grid-area: okButtonDiv;
-            background-color: whitesmoke;
-            background-image: url('Images/imgTappingHand.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+            grid-area: bottomScreenDiv;
+            display: grid;
+            grid-template: 'timerDiv okButtonDiv' auto / 66dvw 34dvw
         }
 
         #timerDiv {
@@ -487,7 +478,11 @@ function getTnmExplanationScreenExplanation_Image(tnmCode = 'TX'){
             width: 34dvw;
             height: 20dvh;
             grid-area: okButtonDiv;
-            background-color: blueviolet;
+            background-color: whitesmoke;
+            background-image: url('Images/imgRepeat.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
                 
         </style>`

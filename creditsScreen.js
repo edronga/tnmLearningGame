@@ -63,7 +63,7 @@ function getCreditsScreen(){
             height: 20dvh;
             grid-area: okButtonDiv;
             background-color: whitesmoke;
-            background-image: url('Images/imgTappingHand.png');
+            background-image: url('Images/imgPatientFile.png');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
