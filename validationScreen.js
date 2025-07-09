@@ -85,7 +85,11 @@ function getValidationScreen(playerChoice, solution = cache['solution']){
             width: 34dvw;
             height: 20dvh;
             grid-area: okButtonDiv;
-            background-color: blueviolet;
+            background-color: whitesmoke;
+            background-image: url('Images/imgRepeat.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
                 
         </style>`
