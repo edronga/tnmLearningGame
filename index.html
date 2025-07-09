@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <link rel="icon" type="image/x-icon" href="Images/imgXray.png">
+    <title>Tiny Nasty Masses</title>
+</head>
+<body>
+    <body>
+    <div id = 'myContentDiv'>
+        <p id = 'titleText'>Tiny <br>Nasty <br>Masses</p>
+    </div>
+    <div id = 'bottomScreenDiv'>
+        <div id = 'timerDiv'>
+            <p id = 'timerText'></p>
+        </div>
+        <div id = 'okButtonDiv'>   
+        </div>
+    </div>
+    
+</body>
+<style>
+body{
+    height: 100dvh;
+    width: 100dvw;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template: 'myContentDiv' 80dvh
+    'bottomScreenDiv' 20dvh / auto;
+    background-color: white;
+}
+#myContentDiv{
+    width: 100dvw;
+    height: 80dvh;
+    font : bold 90px serif;
+    color : red;
+    -webkit-text-stroke: black 2px;
+    grid-area: myContentDiv;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    background-image: url('Images/imgLungHeartAnatomy.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#titleText{
+    backdrop-filter: blur(4px);
+}
+
+#bottomScreenDiv{
+    width: 100dvw;
+    height: 20dvh;
+    grid-area: bottomScreenDiv;
+    display: grid;
+    grid-template: 'timerDiv okButtonDiv' auto / 66dvw 34dvw;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+#timerDiv {
+    width: 66dvw;
+    height: 20dvh;
+    grid-area: timerDiv;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    font-size: 8dvh;
+    background-color: transparent;
+}
+
+#timerText{
+    margin: 0;
+    padding: 0;
+}
+
+#okButtonDiv{
+    width: 34dvw;
+    height: 20dvh;
+    grid-area: okButtonDiv;
+    background-color: whitesmoke;
+    background-image: url('Images/imgPatientFile.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+        
+</style>
+<script src = "data.js"></script>
+<script src = "menuScreen.js"></script>
+<script src = "imageVisualisationScreen.js"></script>
+<script src = "selectionScreen.js"></script>
+<script src = "validationScreen.js"></script>
+<script src = "lungTnm9thData.js"></script>
+<script src = "tnmExplanationScreen.js"></script>
+<script src = "creditsScreen.js"></script>
+<script src = "bestScoresScreen.js"></script>
+<script src = "timer.js"></script>
+<script src = "main.js"></script>
+
+
+</html>
