@@ -72,7 +72,11 @@ function imageVisualiserScreen(arrayOfCtImages = [], imgButtonLeft, imgButtonRig
     middleButtonDiv.style.width = '33dvw'
     middleButtonDiv.style.height = '20dvh'
     middleButtonDiv.style.gridArea = 'middleButtonDiv'
-    middleButtonDiv.style.backgroundColor = 'antiquewhite'
+    middleButtonDiv.style.backgroundColor = 'black'
+    middleButtonDiv.style.backgroundPosition = 'center'
+    middleButtonDiv.style.backgroundRepeat = 'no-repeat'
+    middleButtonDiv.style.backgroundSize = 'contain'
+    middleButtonDiv.style.backgroundImage = `url('Images/imgXray.png')`
     
     rightButtonDiv.id = 'rightButtonDiv'
     rightButtonDiv.style.width = '33dvw'
@@ -105,7 +109,12 @@ function imageVisualiserScreen(arrayOfCtImages = [], imgButtonLeft, imgButtonRig
     okButtonDiv.style.width = '34dvw'
     okButtonDiv.style.height = '20dvh'
     okButtonDiv.style.gridArea = 'okButtonDiv'
-    okButtonDiv.style.backgroundColor = 'blueviolet'
+    okButtonDiv.style.backgroundImage = `url('Images/imgTappingHand.png')`
+    okButtonDiv.style.backgroundColor = 'whitesmoke'
+    okButtonDiv.style.backgroundPostion = 'center'
+    okButtonDiv.style.backgroundRepeat = 'no-repeat'
+    okButtonDiv.style.backgroundSize = 'contain'
+
 
     cache['currentCtImage'] = 0
     // events

@@ -10,7 +10,7 @@ document.getElementById('okButtonDiv').addEventListener('pointerdown', () =>{
     document.getElementsByTagName('body')[0].appendChild(getMenuScreen())
 })
 
-cache['TIME_FOR_ROUND'] = 30
+cache['TIME_FOR_ROUND'] = 180
 cache['timer'] = gen_timerValue(cache['TIME_FOR_ROUND'])
 cache['gameOver'] = true
 setInterval(()=>{

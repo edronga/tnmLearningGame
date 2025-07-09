@@ -261,7 +261,11 @@ function getTnmExplanationScreenSelection(){
             width: 34dvw;
             height: 20dvh;
             grid-area: okButtonDiv;
-            background-color: blueviolet;
+            background-color: whitesmoke;
+            background-image: url('Images/imgTappingHand.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
                 
         </style>`
@@ -365,7 +369,11 @@ function getTnmExplanationScreenExplanation_Text(tnmCode = 'TX'){
             width: 34dvw;
             height: 20dvh;
             grid-area: okButtonDiv;
-            background-color: blueviolet;
+            background-color: whitesmoke;
+            background-image: url('Images/imgPatientFile.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
                 
         </style>`
@@ -457,12 +465,15 @@ function getTnmExplanationScreenExplanation_Image(tnmCode = 'TX'){
             background-size: contain;
         }
 
-        #bottomScreenDiv{
-            width: 100dvw;
+        #okButtonDiv{
+            width: 34dvw;
             height: 20dvh;
-            grid-area: bottomScreenDiv;
-            display: grid;
-            grid-template: 'timerDiv okButtonDiv' auto / 66dvw 34dvw
+            grid-area: okButtonDiv;
+            background-color: whitesmoke;
+            background-image: url('Images/imgTappingHand.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
 
         #timerDiv {
