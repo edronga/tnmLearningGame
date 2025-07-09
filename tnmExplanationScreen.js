@@ -419,7 +419,7 @@ function getTnmExplanationScreenExplanation_Image(tnmCode = 'TX'){
     'M1c': 'Images/tnmExplanationImages/tnmExplanationM1c1.png',
     'M1c1': 'Images/tnmExplanationImages/tnmExplanationM1c1.png',
     'M1c2': 'Images/tnmExplanationImages/tnmExplanationM1c2.png',
-    'ajccStaging': 'Images/tnmExplanationImages/tnmStagesSummary'
+    'ajccStaging': 'Images/tnmExplanationImages/tnmStagesSummary.png'
     }
 
     r.innerHTML = ` 
