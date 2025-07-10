@@ -1,6 +1,6 @@
 'use strict'
 
-screen.orientation.unlock()
+screen.orientation.lock()
 
 document.addEventListener('pointerdown', function (e) {
     e.preventDefault();
