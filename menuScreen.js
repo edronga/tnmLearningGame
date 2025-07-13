@@ -8,16 +8,16 @@ function getMenuScreen(){
     <div id = 'all'>
         <div id = 'myContentDiv'>
             <div id = 'learnDiv' class = 'menuOption'>
-                <p>LEARN</p>
+                <p class = 'text'><b>LEARN</b></p>
             </div>
             <div id = 'playDiv' class = 'menuOption'>
-                <p>PLAY</p>
+                <p class = 'text'><b>PLAY</b></p>
             </div>
             <div id = 'creditsDiv' class = 'menuOption'>
-                <p>Credits</p>
+                <p class = 'text'>Credits</p>
             </div>
             <div id = 'bestScoresDiv' class = 'menuOption'>
-                <p>Top Scores</p>
+                <p class = 'text'>Top Scores</p>
             </div>
         </div>
         <div id = 'bottomScreenDiv'>
@@ -43,11 +43,16 @@ function getMenuScreen(){
             border: black 4px solid;
             width: 90dvw;
             height: 15dvh;
-            font-size : 5dvh;
+            font-size : 7dvh;
+            color: black;
             display: grid;
             align-items: center;
             justify-items: center;
             text-align: center;
+        }
+
+        .text{
+            margin: 0;
         }
 
         #myContentDiv{
@@ -58,6 +63,10 @@ function getMenuScreen(){
             align-items: center;
             justify-items: center;
             text-align: center;
+        }
+
+        #playDiv{
+            font-family: cursive;
         }
 
         #bottomScreenDiv{
@@ -72,7 +81,7 @@ function getMenuScreen(){
             width: 66dvw;
             height: 20dvh;
             grid-area: timerDiv;
-            background-color: lightblue;
+            background-color: whitesmoke;
         }
 
         #okButtonDiv{
@@ -90,28 +99,9 @@ function getMenuScreen(){
 
         document.getElementsByTagName('body')[0].style.margin = 0
 
-        r.querySelector('#learnDiv').style.border = 'blue 4px solid'
-        cache['menuSelection'] = 'learn'
-
-        let t = ['learn', 'play', 'credits', 'bestScores']
-        t.forEach((value) =>{
-            r.querySelector('#' + value + 'Div').addEventListener('pointerdown', () =>{
-                cache['menuSelection'] = value
-                t.forEach((val) =>{
-                    document.querySelector('#' + val + 'Div').style.border = 'black 4px solid'
-                })
-                document.querySelector('#' + value + 'Div').style.border = 'blue 4px solid'
-            })
-        })
-
-        r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
-            if (cache['isfingerSlippingSecurityOff'] !== true){
-                cache['isfingerSlippingSecurityOff'] = true
-                updateOkButtonImg()
-                return;
-            }
-            else {
-                document.getElementsByTagName('body')[0].innerHTML = ''
+        cache['menuSelection'] = 'none'
+        function goToNextScreen(){
+            document.getElementsByTagName('body')[0].innerHTML = ''
                 cache['isfingerSlippingSecurityOff'] = false
                 switch (cache['menuSelection']){
                     case 'learn':
@@ -133,13 +123,56 @@ function getMenuScreen(){
                     case 'bestScores':
                         document.getElementsByTagName('body')[0].appendChild(getBestScoresScreen())
                         break;
+                    case 'none':
+                        break;
                     default:
                         console.log(`variable cache['menuSelection'] value is not covered in the switch options`)
                 }
+        }
+
+        let t = ['learn', 'play', 'credits', 'bestScores']
+        t.forEach((value) =>{
+            r.querySelector('#' + value + 'Div').addEventListener('pointerdown', () =>{
+                if (cache['isfingerSlippingSecurityOff'] !== true || value !== cache['menuSelection']){
+                    cache['menuSelection'] = value
+                    t.forEach((val) =>{
+                    document.querySelector('#' + val + 'Div').style.border = 'black 4px solid'
+                    document.querySelector('#' + val + 'Div').style.backgroundColor = 'white'
+                    document.querySelector('#' + val + 'Div').style.color = 'black'
+                    })
+                    document.querySelector('#' + value + 'Div').style.border = 'blue 4px solid'
+                    document.querySelector('#' + value + 'Div').style.backgroundColor = 'mistyRose'
+                    document.querySelector('#' + value + 'Div').style.color = 'blue'
+                    cache['isfingerSlippingSecurityOff'] = true
+                    updateOkButtonImg()
+                }
+                else {
+                    goToNextScreen()
+                }
+
+            })
+        })
+
+        r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
+            if (cache['isfingerSlippingSecurityOff'] !== true){
+                return;
+            }
+            else {
+                goToNextScreen()
             }
         })
 
-
+        r.querySelector('#timerDiv').addEventListener('pointerdown', ()=>{
+            cache['isfingerSlippingSecurityOff'] = false
+            updateOkButtonImg()
+            cache['menuSelection'] = 'none'
+            let t = ['learn', 'play', 'credits', 'bestScores']
+            t.forEach((value) =>{
+                document.querySelector('#' + value + 'Div').style.border = 'black 4px solid'
+                document.querySelector('#' + value + 'Div').style.backgroundColor = 'white'
+                document.querySelector('#' + val + 'Div').style.color = 'black'
+            })
+        })
 
     return r ;
 }

@@ -30,27 +30,23 @@ body{
     display: grid;
     grid-template: 'myContentDiv' 80dvh
     'bottomScreenDiv' 20dvh / auto;
-    background-color: white;
+    background-color: black;
+    background-image: url('Images/imgCoronalNormalCt.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 #myContentDiv{
     width: 100dvw;
     height: 80dvh;
     font : bold 90px serif;
-    color : red;
-    -webkit-text-stroke: black 2px;
+    color : white;
+    -webkit-text-stroke: darkblue 2px;
     grid-area: myContentDiv;
     display: grid;
     align-items: center;
     justify-items: center;
     text-align: center;
-    background-image: url('Images/imgLungHeartAnatomy.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#titleText{
-    backdrop-filter: blur(4px);
 }
 
 #bottomScreenDiv{
@@ -85,7 +81,7 @@ body{
     width: 34dvw;
     height: 20dvh;
     grid-area: okButtonDiv;
-    background-color: whitesmoke;
+    background-color: transparent;
     background-image: url('Images/imgPatientFile.png');
     background-position: center;
     background-repeat: no-repeat;

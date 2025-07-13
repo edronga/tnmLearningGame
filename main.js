@@ -1,16 +1,27 @@
 'use strict'
 
-window.screen.orientation.lock('portrait')
+try{
+    window.screen.orientation.lock('portrait')
+}
+catch(error){
+    throw error;
+}
 
 document.addEventListener('pointerdown', function (e) {
     e.preventDefault();
 }, {passive: false})
 
-
-document.getElementById('okButtonDiv').addEventListener('pointerdown', () =>{
+function goToMenu(){
     document.getElementsByTagName('body')[0].innerHTML = ''
     document.getElementsByTagName('body')[0].appendChild(getMenuScreen())
+}
+document.querySelector('#myContentDiv').addEventListener('pointerdown', () =>{
+    goToMenu()
 })
+document.querySelector('#bottomScreenDiv').addEventListener('pointerdown', () =>{
+    goToMenu()
+})
+
 
 cache['TIME_FOR_ROUND'] = 180
 cache['timer'] = gen_timerValue(cache['TIME_FOR_ROUND'])
@@ -34,7 +45,7 @@ setInterval(()=>{
 
 cache['isfingerSlippingSecurityOff'] = false
 
-function updateOkButtonImg (securityImg = !cache['isfingerSlippingSecurityOff'] ){
+function updateOkButtonImg (securityImg = !cache['isfingerSlippingSecurityOff'], buttonImgUrl = 'Images/imgTappingHand.png' ){
     if (document.querySelector('#okButtonDiv') === null){
         return;
     }
@@ -45,7 +56,7 @@ function updateOkButtonImg (securityImg = !cache['isfingerSlippingSecurityOff'] 
         document.querySelector('#okButtonDiv').style.backgroundSize = 'contain'
     }
     else {
-        document.querySelector('#okButtonDiv').style.backgroundImage = `url('Images/imgTappingHand.png')`
+        document.querySelector('#okButtonDiv').style.backgroundImage = `url(${buttonImgUrl})`
         document.querySelector('#okButtonDiv').style.backgroundPosition = 'center'
         document.querySelector('#okButtonDiv').style.backgroundRepeat = 'no-repeat'
         document.querySelector('#okButtonDiv').style.backgroundSize = 'contain'

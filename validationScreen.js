@@ -7,15 +7,13 @@ function getValidationScreen(playerChoice, solution = cache['solution']){
     r.innerHTML = ` 
     <div id = 'all'>
         <div id = 'myContentDiv'>
-            <div id = 'playerSolution'>
-                <p>Selection: </p>
-                <p>${playerChoice}<p>
-            </div>
-            <div id = 'winOrLoseIcon'>
-            </div>
             <div id = 'solution'>
                 <p>Solution: </p>
                 <p>${solution}<p>
+            </div>
+            <div id = 'playerSelection'>
+                <p>Selection: </p>
+                <p>${playerChoice}<p>
             </div>
             <div id = 'currentScore'>
                 <p>Current Score</p>
@@ -42,18 +40,33 @@ function getValidationScreen(playerChoice, solution = cache['solution']){
             'bottomScreenDiv' 20dvh / auto;
         }
 
-        .menuOption{
-            border: black 4px solid;
-        }
-
         #myContentDiv{
             width: 100dvw;
             height: 80dvh;
+            font-size: 5dvh;
+            margin: 0;
             grid-area: myContentDiv;
             display: grid;
             align-items: center;
             justify-items: center;
             text-align: center;
+            grid-template : 'solution' 26dvh
+            'playerSelection' 26dvh
+            'currentScore' 28dvh;
+        }
+
+        #playerSelection{
+            color: ${playerChoice === solution ? 'green' : 'red'};
+            grid-area : playerSelection;
+        }
+
+        #solution{
+            color: blue;
+            'grid-area': solution;
+        }
+
+        #currentScore{
+            grid-area: currentScore;
         }
 
         #bottomScreenDiv{
@@ -73,7 +86,7 @@ function getValidationScreen(playerChoice, solution = cache['solution']){
         justify-items: center;
         text-align: center;
         font-size: 8dvh;
-        background-color: lightblue;
+        background-color: whitesmoke;
         }
 
         #timerText{
@@ -86,7 +99,7 @@ function getValidationScreen(playerChoice, solution = cache['solution']){
             height: 20dvh;
             grid-area: okButtonDiv;
             background-color: whitesmoke;
-            background-image: url('Images/imgRepeat.png');
+            background-image: url('${cache['gameOver'] === true ? 'Images/imgPatientFile.png': 'Images/imgRepeat.png'}');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -96,12 +109,10 @@ function getValidationScreen(playerChoice, solution = cache['solution']){
 
         cache['isOnValidationScreen'] = true
 
-        updateOkButtonImg()
-
         r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
             if (cache['isfingerSlippingSecurityOff'] !== true){
                 cache['isfingerSlippingSecurityOff'] = true
-                updateOkButtonImg()
+                updateOkButtonImg(!cache['isfingerSlippingSecurityOff'], `{cache['gameOver'] === true ? 'Images/imgPatientFile.png': 'Images/imgRepeat.png'}`)               
                 return;
             }
             else if (cache['gameOver'] !== true){

@@ -257,7 +257,7 @@ function getSelectionScreen(answer){
         justify-items: center;
         text-align: center;
         font-size: 8dvh;
-        background-color: lightblue;
+        background-color: whitesmoke;
         }
 
         #timerText{
@@ -292,8 +292,12 @@ function getSelectionScreen(answer){
                 const t = ['T0', 'T1', 'T2', 'T3', 'T4', 'T1a', 'T1b', 'T1c', 'T2a', 'T2b']
                 t.forEach((val) =>{
                     document.querySelector('#' + val + 'Div').style.border = 'black 2px solid'
+                    document.querySelector('#' + val + 'Div').style.fontWeight = 'normal' 
+                    document.querySelector('#' + val + 'Div').style.color = 'black'
                 })
                 document.querySelector('#' + value + 'Div').style.border = 'blue 2px solid'
+                document.querySelector('#' + value + 'Div').style.fontWeight = 'bold' 
+                document.querySelector('#' + value + 'Div').style.color = 'darkblue'
                 cache['playerChoice_T'] = value
             })
             
@@ -305,8 +309,12 @@ function getSelectionScreen(answer){
                 const t = ['N0', 'N1', 'N2', 'N3', 'N2a', 'N2b']
                 t.forEach((val) =>{
                     document.querySelector('#' + val + 'Div').style.border = 'black 2px solid'
+                    document.querySelector('#' + val + 'Div').style.fontWeight = 'normal' 
+                    document.querySelector('#' + val + 'Div').style.color = 'black'
                 })
                 document.querySelector('#' + value + 'Div').style.border = 'blue 2px solid'
+                document.querySelector('#' + value + 'Div').style.fontWeight = 'bold' 
+                document.querySelector('#' + value + 'Div').style.color = 'darkblue'
                 cache['playerChoice_N'] = value
             })
             
@@ -318,8 +326,12 @@ function getSelectionScreen(answer){
                 const t = ['M0', 'M1', 'M1a', 'M1b', 'M1c', 'M1c1', 'M1c2']
                 t.forEach((val) =>{
                     document.querySelector('#' + val + 'Div').style.border = 'black 2px solid'
+                    document.querySelector('#' + val + 'Div').style.fontWeight = 'normal' 
+                    document.querySelector('#' + val + 'Div').style.color = 'black'
                 })
                 document.querySelector('#' + value + 'Div').style.border = 'blue 2px solid'
+                document.querySelector('#' + value + 'Div').style.fontWeight = 'bold' 
+                document.querySelector('#' + value + 'Div').style.color = 'darkblue'
                 cache['playerChoice_M'] = value
             })
             
@@ -331,8 +343,12 @@ function getSelectionScreen(answer){
             const t = ['IA1', 'IA2', 'IA3', 'IB', 'IIA', 'IIB', 'IIIA', 'IIIB', 'IIIC', 'IVA', 'IVB']
             t.forEach((val) => {
                 document.querySelector('#' + val + 'Div').style.border = 'black 2px solid'
+                document.querySelector('#' + val + 'Div').style.fontWeight = 'normal' 
+                document.querySelector('#' + val + 'Div').style.color = 'black'
             })
             document.querySelector('#' + value + 'Div').style.border = 'blue 2px solid'
+            document.querySelector('#' + value + 'Div').style.fontWeight = 'bold' 
+            document.querySelector('#' + value + 'Div').style.color = 'darkblue'
             cache['playerChoice_Stage'] = value
         })
     })
@@ -340,7 +356,7 @@ function getSelectionScreen(answer){
     r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
             if (cache['isfingerSlippingSecurityOff'] !== true){
                 cache['isfingerSlippingSecurityOff'] = true
-                updateOkButtonImg()
+                updateOkButtonImg(!cache['isfingerSlippingSecurityOff'], 'Images/imgSalutingFace.png')
                 return;
             }
             else {

@@ -254,7 +254,7 @@ function getTnmExplanationScreenSelection(){
             width: 66dvw;
             height: 20dvh;
             grid-area: timerDiv;
-            background-color: lightblue;
+            background-color: whitesmoke;
         }
 
         #okButtonDiv{
@@ -303,16 +303,16 @@ function getTnmExplanationScreenSelection(){
 function getTnmExplanationScreenExplanation_Text(tnmCode = 'TX'){
     let r = document.createElement('div')
 
-    const text = lungTnm.getDefinition(tnmCode).replaceAll('\n', '<br>')
+    const text = lungTnm.getDefinition(tnmCode).replaceAll('\n', '<br>').replaceAll('OR', '<br>OR<br>')
 
     r.innerHTML = ` 
     <div id = 'all'>
         <div id = 'myContentDiv'>
             <div id = 'title'>
-                <p>${tnmCode}</p>
+                <p class = 'text'>${tnmCode}</p>
             </div>
             <div id = 'textDefiniion'>
-                <p>${text}</p>
+                <p class = 'text'>${text}</p>
             </div>
         </div>
         <div id = 'bottomScreenDiv'>
@@ -339,9 +339,27 @@ function getTnmExplanationScreenExplanation_Text(tnmCode = 'TX'){
             height: 80dvh;
             grid-area: myContentDiv;
             display: grid;
-            align-items: center;
+            align-items: start;
             justify-items: center;
             text-align: center;
+            grid-template: 'title' 20dvh
+            'textDefinition' 60dvh
+        }
+
+        #title{
+            grid-area : title;
+            font-size: 10dvh;
+            width: 95dvw ;
+            border : 2px solid black;
+        }
+
+        #textDefinition{
+            grid-area: textDefinition;
+            width : 95dvw;
+        }
+
+        .text{
+            margin: 0;
         }
 
         #bottomScreenDiv{
@@ -356,7 +374,7 @@ function getTnmExplanationScreenExplanation_Text(tnmCode = 'TX'){
             width: 66dvw;
             height: 20dvh;
             grid-area: timerDiv;
-            background-color: lightblue;
+            background-color: whitesmoke;
         }
 
         #okButtonDiv{
@@ -471,7 +489,7 @@ function getTnmExplanationScreenExplanation_Image(tnmCode = 'TX'){
             width: 66dvw;
             height: 20dvh;
             grid-area: timerDiv;
-            background-color: lightblue;
+            background-color: whitesmoke;
         }
 
         #okButtonDiv{

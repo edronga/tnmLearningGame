@@ -76,7 +76,7 @@ function imageVisualiserScreen(arrayOfCtImages = [], imgButtonLeft, imgButtonRig
     middleButtonDiv.style.backgroundPosition = 'center'
     middleButtonDiv.style.backgroundRepeat = 'no-repeat'
     middleButtonDiv.style.backgroundSize = 'contain'
-    middleButtonDiv.style.backgroundImage = `url('Images/imgXray.png')`
+    middleButtonDiv.style.backgroundImage = `url('Images/imgControlKnobs.png')`
     
     rightButtonDiv.id = 'rightButtonDiv'
     rightButtonDiv.style.width = '33dvw'
@@ -97,7 +97,7 @@ function imageVisualiserScreen(arrayOfCtImages = [], imgButtonLeft, imgButtonRig
     timerDiv.id = 'timerDiv'
     timerDiv.style.width = '66dvw'
     timerDiv.style.height = '20dvh'
-    timerDiv.style.backgroundColor = 'white'
+    timerDiv.style.backgroundColor = 'whitesmoke'
     timerDiv.style.fontSize = '10dvh'
     timerDiv.style.gridArea = 'timerDiv'
     timerDiv.style.display = 'grid'
@@ -143,17 +143,33 @@ function imageVisualiserScreen(arrayOfCtImages = [], imgButtonLeft, imgButtonRig
     })
 
     r.querySelector('#okButtonDiv').addEventListener('pointerdown', () =>{
-            if (cache['isfingerSlippingSecurityOff'] !== true){
-                cache['isfingerSlippingSecurityOff'] = true
-                updateOkButtonImg()
-                return;
-            }
-            else {
-                document.getElementsByTagName('body')[0].innerHTML = ''
-                document.getElementsByTagName('body')[0].appendChild(getSelectionScreen(cache['currentSolution']))
-                cache['isfingerSlippingSecurityOff'] = false
-            }
-        })
+        if (cache['isfingerSlippingSecurityOff'] !== true){
+            cache['isfingerSlippingSecurityOff'] = true
+            updateOkButtonImg(!cache['isfingerSlippingSecurityOff'], 'Images/imgNerdFace.png')
+            return;
+        }
+        else {
+            document.getElementsByTagName('body')[0].innerHTML = ''
+            document.getElementsByTagName('body')[0].appendChild(getSelectionScreen(cache['currentSolution']))
+            cache['isfingerSlippingSecurityOff'] = false
+        }
+    })
+
+    r.querySelector('#myContentDiv').addEventListener('pointerdown', () =>{
+        if (cache['isfingerSlippingSecurityOff'] === true){
+            cache['isfingerSlippingSecurityOff'] = false
+            updateOkButtonImg(!cache['isfingerSlippingSecurityOff'])
+            return;
+        }
+    })
+
+    r.querySelector('#timerDiv').addEventListener('pointerdown', () =>{
+        if (cache['isfingerSlippingSecurityOff'] === true){
+            cache['isfingerSlippingSecurityOff'] = false
+            updateOkButtonImg(!cache['isfingerSlippingSecurityOff'])
+            return;
+        }
+    })
 
     return r
 }
